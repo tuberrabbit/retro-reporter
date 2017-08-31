@@ -2,7 +2,22 @@ import * as json2md from 'json2md';
 import * as _ from 'lodash';
 import * as fs from 'fs';
 
-export const title = '七月 Retro 活动（2017/07/28）';
+enum month {
+  '一',
+  '二',
+  '三',
+  '四',
+  '五',
+  '六',
+  '七',
+  '八',
+  '九',
+  '十',
+  '十一',
+  '十二',
+}
+
+export const getTitle = () => `${month[new Date().getMonth()]}月 Retro 活动（${new Date().toISOString().split('T')[0]}）`;
 export const summary = '本次 Retro，我们依然采用了 Well、Less well、Confused，三个维度来回顾过去一个月团队内发生的变化。整个过程，感谢大家的热情积极，最后也提出了很多不错的 Actions。';
 export const well = 'Well';
 export const lessWell = 'Less well';

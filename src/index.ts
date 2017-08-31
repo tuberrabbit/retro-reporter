@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 import {
-  title,
+  getTitle,
   summary,
   well,
   lessWell,
@@ -15,7 +15,7 @@ import {
 const [wellList, lessWellList, confusedList, actionsList] = getLists();
 
 const md = parser([
-  { h1: title },
+  { h1: getTitle() },
   { p: summary },
   { h2: well },
   { ul: wellList },
