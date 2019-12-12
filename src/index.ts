@@ -5,14 +5,14 @@ import {
   summary,
   well,
   lessWell,
-  confused,
+  suggestions,
   actions,
   notes,
   parser,
   getLists,
 } from './templates';
 
-const [wellList, lessWellList, confusedList, actionsList] = getLists();
+const [wellList, lessWellList, suggestionList, actionsList] = getLists();
 
 const md = parser([
   { h1: getTitle() },
@@ -21,8 +21,8 @@ const md = parser([
   { ul: wellList },
   { h2: lessWell },
   { ul: lessWellList },
-  { h2: confused },
-  { ul: confusedList },
+  { h2: suggestions },
+  { ul: suggestionList },
   { h2: actions },
   { ul: actionsList },
   { notes: notes },
