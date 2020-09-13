@@ -18,7 +18,7 @@ enum month {
 }
 
 export const getTitle = () => `${month[new Date().getMonth()]}月 Retro 活动（${new Date().toISOString().split('T')[0]}）`;
-export const summary = '本次 Retro，我们依然采用了线上工具 RetroTool，三个维度来回顾过去一个月团队内发生的变化。整个过程，感谢大家的热情积极，最后也提出了很多不错的 Actions。';
+export const summary = '本次 Retro，我们采用了线上工具 RetroTool，三个维度来回顾过去一个月团队内发生的变化。整个过程，感谢大家的热情积极，最后也提出了很多不错的 Actions。';
 export const well = 'Well';
 export const lessWell = 'Less well';
 export const confused = 'confused';
@@ -42,9 +42,20 @@ export const parser = json2md;
 
 export const getLists = () => {
   const records = fs.readFileSync('./records.txt', 'utf-8');
-  return _.chain(records)
-          .split('###')
-          .map(item => item.trim())
-          .map(item => item.split('\n'))
-          .value();
+  const list = _.chain(records)
+                .split(/\n/).reject(item => /^##/.test(item)).value();
+  const result = [];
+  let temp = [];
+  for (let i = 0; i < list.length; i++) {
+    if (_.isEmpty(list[i])) {
+      result.push(temp);
+      temp = [];
+    } else {
+      temp.push(list[i].replace(/\* /, ''));
+    }
+  }
+  if (temp.length < 4) {
+    result.push([]);
+  }
+  return result;
 };
