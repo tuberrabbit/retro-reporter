@@ -18,10 +18,10 @@ enum month {
 }
 
 export const getTitle = () => `${month[new Date().getMonth()]}月 Retro 活动（${new Date().toISOString().split('T')[0]}）`;
-export const summary = '本次 Retro，我们依然采用了 Well、Less well、Suggestions，三个维度来回顾过去一个月团队内发生的变化。整个过程，感谢大家的热情积极，最后也提出了很多不错的 Actions。';
+export const summary = '本次 Retro，我们依然采用了线上工具 RetroTool，三个维度来回顾过去一个月团队内发生的变化。整个过程，感谢大家的热情积极，最后也提出了很多不错的 Actions。';
 export const well = 'Well';
 export const lessWell = 'Less well';
-export const suggestions = 'Suggestions';
+export const confused = 'confused';
 export const actions = 'Actions';
 export const notes = [
   'PS：我们会在下次 Retro，先过一遍这次的 Actions 执行情况，请知悉。',
